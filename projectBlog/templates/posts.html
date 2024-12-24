@@ -1,0 +1,69 @@
+{% include "header.html" %}
+{% load static %}
+
+<style>
+    .ownPostCSS{
+        width: 300px; /* You can adjust the size as needed */
+        height: auto;
+        background-color: #3498db; /* blue color */
+        border: 2px solid #2c3e50; /* dark blue border */
+        justify-content: center; /* centers content horizontally if any */
+        align-items: center;
+        display: inline-block;
+        margin: 5%;
+    }
+    .postSquare img{
+        width: 300px;
+        height: 50%;
+    }
+
+</style>
+<!-----------------to show own posts---------------->
+{% if ownPost %}
+    <div class = "ownPostCSS">
+        {% for post in ownPost%}
+        <div class="postSquare">
+            <a style = "text-decoration: none;" href="/posts/{{post.id}}">
+                <table>
+                    <tr><td><img src="{{ post.post_img.url }}"></td></tr>
+                    <tr><td><b>{{post.title}}</b></td></tr>
+                    <tr><td>{{post.created_at}}</td></tr>
+                    <tr><td><p>{{post.body|truncatewords:40}}</p></td></tr>
+                    <tr><td><a style = "text-decoration: none; color: red;" href="/posts/edit/{{post.id}}">EDIT THIS POST</a></td></tr>
+                    <tr><td><a style = "text-decoration: none; color: red;" href="/posts/delete/{{post.id}}">DELETE THIS POST</a></td></tr>
+                </table>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div style="margin: 10%;">
+        <img src="{{ posts.post_img.url }}"><br>
+        <b>{{posts.title}}</b> <br>
+        {{posts.created_at}} <br>
+        <p>{{posts.body}}</p>
+    </div>
+    
+    <div style="margin: 10%;">
+    
+        <h2>Comments</h2>
+        {% for comment in comments %}
+            <div> <strong>{{ comment.user.username }}</strong>
+                {{ comment.created_at }} <p>{{ comment.text }}</p>
+            </div>
+        {% endfor %}
+        
+        <b>{{comments.text}}</b> <br>
+        {% if user.is_authenticated %}
+            <h2>Leave a Comment</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
+            </form>
+        {% else %}
+            <p>You must be logged in to leave a comment.</p>
+        {% endif %}
+    </div>
+
+{% endif %}

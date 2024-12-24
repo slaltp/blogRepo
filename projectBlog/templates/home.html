@@ -1,0 +1,41 @@
+{% include "header.html" %}
+{% load static %}
+
+<p>Welcome to home {{user}}</p>
+
+{% if not ownPost %}
+<form action="{% url 'ownpost' %}" method="get">
+    <button type="submit">SEE OWN POST</button>
+</form>
+{% endif %}
+
+<div class="login" style="margin: 5%;">
+    {% if not form %}
+        <form action="{% url 'createpost' %}" method="get">
+            <button type="submit">Create Post</button>
+        </form>
+    {% else %}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {% for item in form %}
+                <tr>
+                    <td>{{ item.label }}</td>
+                    <td>{{ item }} <div style="color: red;">{{ item.errors }} </div></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <button type="submit">submit</button>
+        </form>
+    {% endif %}
+</div>
+
+{% if user.is_authenticated %}
+    <a href="{% url 'index' %}">See Posts</a>
+    <form action="{% url 'logout' %}" method="post" style="margin: 10%;">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+{% else %}
+    <a href="{% url 'login' %}">Login</a>  <!-- Optional: Link to login if not logged in -->
+{% endif %}

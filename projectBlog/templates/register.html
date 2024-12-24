@@ -1,0 +1,30 @@
+{% include "header.html" %}
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="cover">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table style="background-color: aqua; border-radius: 10px; border-spacing: 10px;">
+                {% for item in viewForm %}
+                <tr>
+                    {% if item.label == 'Password1:' %}
+                        <th>Password Confirmation</th>
+                        <td>{{ item }}</td>
+                    {% else %}
+                        <th>{{ item.label_tag }}</th>
+                        <td>{{ item }}</td>
+                    {% endif %}
+                    <td class="error">{{ item.errors }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div class="error">
+                {{ viewForm.non_field_errors }}
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>

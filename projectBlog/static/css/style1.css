@@ -1,0 +1,86 @@
+/* General styles */
+body.login {
+    background-color: #3498db; /* Adjust the background color */
+    font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+.header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.main-title {
+    color: rgb(164, 23, 37);
+    font-size: 2.5rem;
+}
+
+.subtitle {
+    color: red;
+    font-size: 1.5rem;
+}
+
+/* Login form container */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form table */
+.form-table {
+    width: 100%;
+    border-spacing: 10px;
+    background-color: aqua;
+    border-radius: 10px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-label {
+    font-weight: bold;
+    text-align: left;
+}
+
+.form-input {
+    width: 70%;
+}
+
+.form-error {
+    color: red;
+    font-size: 0.9rem;
+}
+
+/* Non-field errors */
+.non-field-error {
+    color: red;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Submit button */
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(164, 23, 37);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+.submit-button:hover {
+    background-color: rgb(200, 50, 50);
+}

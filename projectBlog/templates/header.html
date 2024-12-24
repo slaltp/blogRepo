@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+        <body class = "headerCSS">
+            <div class = "header_container"">
+                <h1 style = "color:rgb(164, 23, 37)">S COMMUNITY</h1>
+                <h2 style = "color:red">FOR LEARNING AND NETWORKING</h2>
+            </div>
+            <div>
+                <ul style="text-decoration: none; display:flex; list-style-type:none;">
+                    <li>
+                        <form action="{% url 'ownpost' %}" method="get">
+                            <button type="submit">SEE OWN POST</button>
+                        </form>
+                    </li>
+                    <li></li>
+                </ul>
+            </div>
+        <script src="" async defer></script>
+        </body>
+</html>

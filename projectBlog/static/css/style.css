@@ -1,0 +1,46 @@
+
+.headerCSS{
+    background-color:#2a0bc6;
+    text-align:center;
+    width: 100%;
+}
+.square {
+    width: 300px; /* You can adjust the size as needed */
+    height: 300px;
+    background-color: #3498db; /* blue color */
+    border: 2px solid #2c3e50; /* dark blue border */
+    justify-content: center; /* centers content horizontally if any */
+    align-items: center;
+    margin: 5%;
+}
+.header_container{
+    background-color:#433C36;
+    border-radius:20px;
+    margin:40px; padding:50px;
+    text-align:center;
+}
+.cover{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.square img {
+    max-width: 100%;
+    height: 50%;
+}
+.ownPostCSS{
+    width: 300px; /* You can adjust the size as needed */
+    height: 500px;
+    background-color: #3498db; /* blue color */
+    border: 2px solid #2c3e50; /* dark blue border */
+    justify-content: center; /* centers content horizontally if any */
+    align-items: center;
+    margin: 5%;
+}

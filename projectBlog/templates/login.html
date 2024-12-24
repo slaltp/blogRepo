@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body class="login">
+    <header class="header">
+        <h1 class="main-title">S COMMUNITY</h1>
+        <h2 class="subtitle">FOR LEARNING AND NETWORKING</h2>
+    </header>
+
+    <div class="login-container">
+        <form method="post" enctype="multipart/form-data" class="login-form">
+            {% csrf_token %}
+            <table class="form-table">
+                {% for field in form %}
+                <tr class="form-row">
+                    <th class="form-label">{{ field.label_tag }}</th>
+                    <td class="form-input">{{ field }}</td>
+                    <td class="form-error">{{ field.errors }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <div class="non-field-error">
+                {{ form.non_field_errors }}
+            </div>
+
+            <button type="submit" class="submit-button">Login</button>
+            <a href="{% url 'register' %}" style="text-decoration: none;"> <button type="button" class="submit-button">Go to Register</button> </a>
+        </form>
+    </div>
+</body>
+</html>
